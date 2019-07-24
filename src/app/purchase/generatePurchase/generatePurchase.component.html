@@ -1,0 +1,58 @@
+<form #formPurchase="ngForm" (ngSubmit)="onSubmit()" class="col-lg-6" id="form-product">
+
+  <label>
+    Product:
+  </label>
+  <br>
+  <mat-form-field>
+    <mat-label>Product select</mat-label>
+    <mat-select #productId="ngModel" name="productId" [(ngModel)]="purchase.idProduct">
+      <mat-option *ngFor="let pro of product" [value]="pro.id">
+        {{pro.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <br>
+  <label>
+    Currency:
+  </label>
+  <br>
+  <mat-form-field>
+    <mat-label>Select an option</mat-label>
+    <mat-select #currency="ngModel" name="currency" [(ngModel)]="purchase.currency">
+      <mat-option value="COP">COP</mat-option>
+      <mat-option value="USD">USD</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <br>
+
+
+  <label>
+    Name:
+    <span *ngIf="!name.valid && name.touched" class="label label-danger">the name is necessary to enter </span>
+  </label>
+  <input type="text" #name="ngModel" name="name" [(ngModel)]="purchase.name" class="form-control" required />
+
+  <label>
+    Email:
+    <span *ngIf="!email.valid && email.touched" class="label label-danger">the email is necessary to enter </span>
+  </label>
+  <input type="email" #email="ngModel" name="email" [(ngModel)]="purchase.email" class="form-control" required />
+
+  <label>
+    Mobile:
+    <span *ngIf="!mobile.valid && mobile.touched" class="label label-danger">the mobile is necessary to enter </span>
+  </label>
+  <input type="text" #mobile="ngModel" name="mobile" [(ngModel)]="purchase.mobile" class="form-control" required />
+
+  <label>
+    Address:
+    <span *ngIf="!address.valid && address.touched" class="label label-danger">the Address is necessary to enter </span>
+  </label>
+  <input type="text" #address="ngModel" name="address" [(ngModel)]="purchase.address" class="form-control" required />
+
+  <br>
+  <input type="submit" value="PAY" [disabled]="!formPurchase.form.valid" >
+</form>

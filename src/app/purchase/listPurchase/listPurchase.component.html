@@ -1,0 +1,32 @@
+<!-- Page Heading -->
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+  <h1 class="h3 mb-0 text-gray-800">Order list</h1>
+</div>
+<div *ngIf="!purchase">
+  Cargando listado de Ordenes!...
+</div>
+<div *ngIf="purchase">
+
+  <table matSort (matSortChange)="sortData($event)" id="tablePurchase">
+  <tr>
+    <th mat-sort-header="id">id</th>
+    <th mat-sort-header="customerName">Customer Name</th>
+    <th mat-sort-header="customerEmail">Customer Email</th>
+    <th mat-sort-header="customerMobile">Customer Mobile</th>
+    <th mat-sort-header="customerAddress">Customer Address</th>
+    <th mat-sort-header="status">Status</th>
+  </tr>
+
+  <tr *ngFor="let order of purchase">
+    <td><a [routerLink]="['/detailPurchase/', order]">{{order.reference}}</a></td>
+    <td>{{order.customerName}}</td>
+    <td>{{order.customerEmail}}</td>
+    <td>{{order.customerMobile}}</td>
+    <td>{{order.customerAddress}}</td>
+    <td *ngIf="order.status == 'CREATED'" id="created">{{order.status}}</td>
+    <td *ngIf="order.status == 'REJECTED'" id="rejected">{{order.status}}</td>
+    <td *ngIf="order.status == 'PAYED'" id="payed">{{order.status}}</td>
+    <td *ngIf="order.status == 'APROVED'" id="aproved">{{order.status}}</td>
+  </tr>
+</table>
+</div>
