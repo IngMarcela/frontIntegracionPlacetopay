@@ -1,27 +1,32 @@
-# FrontPlacetopay
+# IntegrationFrontPlacetopay
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.0.
++ Aplicación front generada con angular CLI versión 6.1.0. que provee las vistas para el proyecto https://github.com/IngMarcela/IntegrationPlacetopay el cual simula 
+una tienda que esta integrada con la pasarela de pagos Placetopay
 
-## Development server
+# Vistas principales de la aplicación
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- Vista que permite al cliente proporcionar los datos necesarios para generar una nueva orden
+- Vista donde se presenta un resumen de la orden y se permita proceder a pagar si se encuentra en estado pendiente o rechazado
+- Vista donde se ve el listado de todas las órdenes que tiene la tienda
 
-## Code scaffolding
+# Como correr la aplicación 
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Descargar el proyecto y ejecutar la siguiente línea de comando:
+```
+npm install
+```
+- Comando para correr el servidor de prueba de angular y a su vez construir las vistas
+```
+ng serve
+```
+- En el navegar se puede acceder a las vistas a través de la siguiente url
+```
+http://localhost:4200/
+```
+# Links de documentación utilizada
 
-## Build
+https://angular.io/guide/styleguide
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+https://material.angular.io/
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+https://startbootstrap.com/themes/sb-admin-2/
