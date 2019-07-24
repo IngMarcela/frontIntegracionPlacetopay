@@ -1,9 +1,27 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Inject } from '@angular/core';
 import { GLOBAL } from  '../../service/global';
 import { DataService } from '../../service/data.service';
 import { Purchase } from "../../models/purchase";
 import { Router, ActivatedRoute, Params } from "@angular/router";
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { DetailPurchaseComponent } from "../purchaseDetail/detailPurchase.component";
 import Swal from 'sweetalert2';
+
+export interface DialogData {
+  reference: string
+  id: number;
+  name: string;
+  email: string;
+  mobil: string;
+  address: string;
+  description: string;
+  product: string;
+  price: number;
+  status: string;
+  total: number;
+  processUrl: string;
+
+}
 
 @Component({
   selector: 'app-list-purchase',
@@ -16,14 +34,41 @@ export class ListPurchaseComponent implements OnInit {
   public purchase: Purchase[];
   public parameter;
   public mensaje: string;
+  public animal: string;
+  public data = [];
 
   constructor(
+    public dialog: MatDialog,
     private _dataService: DataService,
     private _route: ActivatedRoute,
     private _router: Router
   ) {
     this.titulo = 'listado de ordenes';
 
+  }
+
+  openDialog(data): void {
+    console.log(data);
+    this.data = data;
+    const dialogRef = this.dialog.open(DetailPurchaseComponent, {
+      width: '40%',
+      data: {id: data['id'],
+        reference: data['reference'],
+        name: data['customerName'],
+        email: data['customerEmail'],
+        mobile: data['customerMobile'],
+        address: data['customerAddress'],
+        description: data['description'],
+        product: data['product']['name'],
+        price: data['product']['price'],
+        status: data['status'],
+        total: data['total'],
+        processUrl: data['processUrl']
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+    });
   }
 
   ngOnInit() {
@@ -51,10 +96,6 @@ export class ListPurchaseComponent implements OnInit {
                   text: res['data'][0]['msg']
                 })
               }
-
-
-
-              /*alert(res['data'][0]['msg']);*/
             }
           )
         });

@@ -1,1 +1,42 @@
-<h1>hola mundo</h1>
+<div id="detail">
+<label>
+  Reference:
+</label>
+<input type="text" class="form-control" value="{{data.reference}}" readonly/>
+  <label>
+    Name:
+  </label>
+  <input type="text" class="form-control" value="{{data.name}}" readonly/>
+  <label>
+    Email:
+  </label>
+  <input type="text" class="form-control" value="{{data.email}}" readonly/>
+  <label>
+    Mobile:
+  </label>
+  <input class="form-control" value="{{data.mobile}}" readonly/>
+  <label>
+    Address
+  </label>
+  <input class="form-control" value="{{data.address}}" readonly/>
+  <label>
+    Description:
+  </label>
+  <input class="form-control" value="{{data.description}}" readonly/>
+  <label>
+    Product:
+  </label>
+  <input class="form-control" value="{{data.product}}" readonly/>
+  <label>
+    Total:
+  </label>
+  <input class="form-control" value="{{data.total}}" readonly/>
+  <label>
+    Status:
+  </label>
+  <input type="text" class="form-control" value="{{data.status}}" readonly/>
+
+  <br>
+
+<a role="button" *ngIf="data.status != 'APROVED'" class="btn btn-success" href="{{data.processUrl}}">PAY</a>
+</div>

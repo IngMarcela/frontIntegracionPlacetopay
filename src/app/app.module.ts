@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatPaginatorModule, MatInputModule, MatButtonModule, MatSelectModule, MatIconModule, MatCardModule, MatFormFieldModule } from '@angular/material';
 import { MatSortModule } from '@angular/material/sort';
+import { MatDialogModule } from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { routing, appRoutingProviders} from "./app.routing";
 
@@ -30,6 +31,7 @@ import { DetailPurchaseComponent } from "./purchase/purchaseDetail/detailPurchas
     MatInputModule,
     MatCardModule,
     MatSelectModule,
+    MatDialogModule,
     HttpClientModule,
     MatSortModule,
     MatIconModule,

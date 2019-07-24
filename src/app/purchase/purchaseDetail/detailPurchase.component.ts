@@ -1,8 +1,10 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Inject } from '@angular/core';
 import { DataService } from '../../service/data.service';
 import { Purchase } from "../../models/purchase";
 import { Router, ActivatedRoute, Params } from "@angular/router";
-import Swal from 'sweetalert2';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { DialogData } from "../listPurchase/listPurchase.component";
+
 
 @Component({
   selector: 'app-detail-purchase',
@@ -18,21 +20,21 @@ export class DetailPurchaseComponent implements OnInit {
   public id: number;
 
   constructor(
+    public dialogRef: MatDialogRef<DetailPurchaseComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData,
     private _dataService: DataService,
     private _route: ActivatedRoute,
     private _router: Router
   ) {
-    this.titulo = 'listado de ordenes';
 
   }
 
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+
   ngOnInit() {
-    this._route.params.forEach((params: Params)=>{
-      this._dataService.getPurchase().subscribe(
-        res => {
-          console.log(res);
-        })
-    });
+    console.log(this.data);
 
   }
 }

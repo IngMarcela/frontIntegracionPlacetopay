@@ -9,7 +9,7 @@
 
   <table matSort (matSortChange)="sortData($event)" id="tablePurchase">
   <tr>
-    <th mat-sort-header="id">id</th>
+    <th mat-sort-header="id">Reference</th>
     <th mat-sort-header="customerName">Customer Name</th>
     <th mat-sort-header="customerEmail">Customer Email</th>
     <th mat-sort-header="customerMobile">Customer Mobile</th>
@@ -18,7 +18,7 @@
   </tr>
 
   <tr *ngFor="let order of purchase">
-    <td><a [routerLink]="['/detailPurchase/', order]">{{order.reference}}</a></td>
+    <td><a (click)="openDialog(order)">{{order.reference}}</a></td>
     <td>{{order.customerName}}</td>
     <td>{{order.customerEmail}}</td>
     <td>{{order.customerMobile}}</td>
