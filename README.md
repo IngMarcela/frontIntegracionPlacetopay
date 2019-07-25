@@ -3,6 +3,10 @@
 + Aplicación front generada con angular CLI versión 6.1.0. que provee las vistas para el proyecto https://github.com/IngMarcela/IntegrationPlacetopay el cual simula 
 una tienda que esta integrada con la pasarela de pagos Placetopay
 
+# Video tutorial de configuración y demostración del proyecto
+
++ https://youtu.be/dlAvd0IXMQw
+
 # Vistas principales de la aplicación
 
 - Vista que permite al cliente proporcionar los datos necesarios para generar una nueva orden
